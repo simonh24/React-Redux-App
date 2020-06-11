@@ -1,51 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getCard } from "../actions"
-import { Button, CircularProgress, Card } from "@material-ui/core"
-import styled from "styled-components";
-
-const ItalicP = styled.p`
-    font-style: italic;
-`;
-
-const StyledLi = styled.li`
-    text-align: left;
-`;
-
-const StyledCard = styled(Card)`
-    width: 30%;
-    padding: 0 20px 25px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px 0;
-`;
-
-const StyledDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-`;
+import { Button, CircularProgress } from "@material-ui/core";
+import { ItalicP, StyledCard, StyledDiv } from "../styles";
 
 const MagicCard = props => {
     console.log(props);
 
     return (
         <StyledDiv>
-            <StyledCard style={{ width: "10%" }}>
-                <h2>Legend</h2>
-                <ul>
-                    <StyledLi>{"{G} = Green"}</StyledLi>
-                    <StyledLi>{"{W} = White"}</StyledLi>
-                    <StyledLi>{"{B} = Black"}</StyledLi>
-                    <StyledLi>{"{R} = Red"}</StyledLi>
-                    <StyledLi>{"{B} = Blue"}</StyledLi>
-                    <StyledLi>{"{U} = Any Color"}</StyledLi>
-                </ul>
-            </StyledCard>
             <Button variant="contained" color="secondary" onClick={() => { props.getCard() }}>Get Random Card</Button>
             {
                 props.isFetching ?
